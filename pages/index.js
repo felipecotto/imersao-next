@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
@@ -20,26 +21,36 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName ] = React.useState('');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <title>Sneaker Head Quiz - Imersão React Alura</title>
+        <title>Sneakerhead Quiz - Imersão React Alura</title>
       </Head>
       <QuizContainer>
         <Widget>
           <Widget.Header>
             <h1>Sneaker Quiz</h1>
-            <p>Você conhece todas as girias do universo Sneaker Head???</p>
+            <p>Você conhece todas as girias do universo Sneakerheads?</p>
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={function (e) {
               e.preventDefault();
+              router.push(`/quiz?name=${name}`);
               console.log('Enviando via React');
             }}
             >
-              <input placeholder="Diz ai seu nome" />
-              <button type="submit">
-                Jogar [seuNome]
+              <input
+                placeholder="Diz ai seu nome"
+                onChange={function(e) {
+                  setName(e.target.value);
+                }}
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+                {name}
               </button>
             </form>
           </Widget.Content>
