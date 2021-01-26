@@ -1,9 +1,12 @@
-import styled from 'styled-components'; 
-import db from '../db.json'; 
+import React from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
+
+import db from '../db.json';
 import Widget from '../src/components/Widget';
-import Footer from '../src/components/Footer'; 
-import GitHubCorner from '../src/components/GitHubCorner'; 
-import QuizBackground from '../src/components/QuizBackground'; 
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -19,26 +22,39 @@ export const QuizContainer = styled.div`
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>Sneaker Head Quiz - Imersão React Alura</title>
+      </Head>
       <QuizContainer>
         <Widget>
-        <Widget.Header>
-          <h1>Sneaker Quiz</h1>
+          <Widget.Header>
+            <h1>Sneaker Quiz</h1>
+            <p>Você conhece todas as girias do universo Sneaker Head???</p>
           </Widget.Header>
           <Widget.Content>
-          <p>Você conhece todas as girias do universo Sneaker Head???</p>
+            <form onSubmit={function (e) {
+              e.preventDefault();
+              console.log('Enviando via React');
+            }}
+            >
+              <input placeholder="Diz ai seu nome" />
+              <button type="submit">
+                Jogar [seuNome]
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
         <Widget>
-        <Widget.Header>
-          <h1>Titulo 01</h1>
+          <Widget.Header>
+            <h1>Titulo 01</h1>
           </Widget.Header>
           <Widget.Content>
-          <p>Lorem Ipsum</p>
+            <p>Lorem Ipsum</p>
           </Widget.Content>
         </Widget>
-        <Footer/>
+        <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/felipecotto" />
     </QuizBackground>
-  ) 
+  );
 }
