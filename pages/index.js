@@ -11,7 +11,7 @@ import QuizBackground from '../src/components/QuizBackground';
 
 export const QuizContainer = styled.div`
   width: 100%;
-  max-width: 350px;
+  max-width: 420px;
   padding-top: 45px;
   margin: auto 10%;
   @media screen and (max-width: 500px) {
@@ -22,7 +22,7 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   const router = useRouter();
-  const [name, setName ] = React.useState('');
+  const [name, setName] = React.useState('');
 
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -57,10 +57,10 @@ export default function Home() {
         </Widget>
         <Widget>
           <Widget.Header>
-            <h1>Titulo 01</h1>
+            <h2>Quiz da Galera 01</h2>
           </Widget.Header>
           <Widget.Content>
-            <p>Lorem Ipsum</p>
+           
           </Widget.Content>
         </Widget>
         <Footer />
