@@ -20,6 +20,33 @@ export const QuizContainer = styled.div`
   }
 `;
 
+export const Input = styled.input`
+  height: 48px;
+  border-radius: 8px; 
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.16); 
+  padding: 0 12px;
+  display: block;
+  width: 100%;
+  margin-bottom: 24px;
+`;
+
+export const Button = styled.button`
+  height: 48px;
+  border-radius: 8px; 
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.16); 
+  padding: 0 12px;
+  background-color: #EE4844; 
+  color: #fff;
+  display: block;
+  width: 100%;
+  font-size: 16px; 
+  text-transform: uppercase; 
+  font-weight: bold;
+  letter-spacing: .5px;
+`;
+
 export default function Home() {
   const router = useRouter();
   const [name, setName] = React.useState('');
@@ -32,8 +59,8 @@ export default function Home() {
       <QuizContainer>
         <Widget>
           <Widget.Header>
-            <h1>Sneaker Quiz</h1>
-            <p>Você conhece todas as girias do universo Sneakerheads?</p>
+            <h1>Sneakers Quiz</h1>
+            <p>Você conhece todas as girias do universo Sneakerhead?</p>
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={function (e) {
@@ -42,16 +69,16 @@ export default function Home() {
               console.log('Enviando via React');
             }}
             >
-              <input
+              <Input
                 placeholder="Diz ai seu nome"
                 onChange={function(e) {
                   setName(e.target.value);
                 }}
               />
-              <button type="submit" disabled={name.length === 0}>
+              <Button type="submit" disabled={name.length === 0}>
                 Jogar
                 {name}
-              </button>
+              </Button>
             </form>
           </Widget.Content>
         </Widget>

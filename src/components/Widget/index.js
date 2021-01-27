@@ -11,7 +11,7 @@ const Widget = styled.div`
     font-size: 48px;
     font-weight: 700;
     line-height: 1;
-    margin-bottom: 0;
+    margin-bottom: 16px;
   }
   h2 {
     font-size: 24px; 
@@ -20,7 +20,7 @@ const Widget = styled.div`
   p {
     font-size: 24px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 32px;
     color: ${({ theme }) => theme.colors.bg};
   }
 `;
