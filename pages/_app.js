@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
     // Deixa branco no começo
     /* background-color: ${({ theme }) => themeDark.colors.bg}; */
-    color: ${({ theme }) => themeDark.colors.contrastText};
+    color: ${({ theme }) => themeDark.colors.primary};
   }
   html, body {
     min-height: 100vh;
@@ -38,6 +38,8 @@ export default function App({ Component, pageProps }) {
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap" rel="stylesheet" />
       </Head>
       <ThemeProvider theme={themeDark}>
         <GlobalStyle />

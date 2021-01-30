@@ -8,44 +8,9 @@ import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 420px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
-
-export const Input = styled.input`
-  height: 48px;
-  border-radius: 8px; 
-  border: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,.16); 
-  padding: 0 12px;
-  display: block;
-  width: 100%;
-  margin-bottom: 24px;
-`;
-
-export const Button = styled.button`
-  height: 48px;
-  border-radius: 8px; 
-  border: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,.16); 
-  padding: 0 12px;
-  background-color: #EE4844; 
-  color: #fff;
-  display: block;
-  width: 100%;
-  font-size: 16px; 
-  text-transform: uppercase; 
-  font-weight: bold;
-  letter-spacing: .5px;
-`;
+import QuizContainer from '../src/components/QuizContainer';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 export default function Home() {
   const router = useRouter();
@@ -63,21 +28,20 @@ export default function Home() {
             <p>Você conhece todas as girias do universo Sneakerhead?</p>
           </Widget.Header>
           <Widget.Content>
-            <form onSubmit={function (e) {
-              e.preventDefault();
+            <form onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
               router.push(`/quiz?name=${name}`);
-              console.log('Enviando via React');
+              console.log('Fazendo uma submissão por meio do react');
             }}
             >
               <Input
+                name="nomeDoUsuario"
+                onChange={(infosDoEvento) => setName(infosDoEvento.target.value)}
                 placeholder="Diz ai seu nome"
-                onChange={function(e) {
-                  setName(e.target.value);
-                }}
+                value={name}
               />
               <Button type="submit" disabled={name.length === 0}>
-                Jogar
-                {name}
+                {`Jogar ${name}`}
               </Button>
             </form>
           </Widget.Content>
