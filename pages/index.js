@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
+import Link from '../src/components/Link';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
@@ -24,7 +25,7 @@ export default function Home() {
       <QuizContainer>
         <Widget>
           <Widget.Header>
-            <h1>Sneakers Quiz</h1>
+            <Widget.Title>Sneakers Quiz</Widget.Title>
             <p>Você conhece todas as girias do universo Sneakerhead?</p>
           </Widget.Header>
           <Widget.Content>
@@ -48,14 +49,33 @@ export default function Home() {
         </Widget>
         <Widget>
           <Widget.Header>
-            <h2>Quiz da Galera 01</h2>
+            <h2>Quiz da Galera</h2>
           </Widget.Header>
           <Widget.Content>
-           
+            <ul>
+              {db.external.map((linkExterno) => {
+                const [projectName, githubUser] = linkExterno
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.');
+
+                return (
+                  <li key={linkExterno}>
+                    <Widget.Topic
+                      as={Link}
+                      href={`/quiz/${projectName}___${githubUser}`}
+                    >
+                      {`${githubUser}/${projectName}`}
+                    </Widget.Topic>
+                  </li>
+                );
+              })}
+            </ul>
           </Widget.Content>
         </Widget>
-        <Footer />
       </QuizContainer>
+      <Footer />
       <GitHubCorner projectUrl="https://github.com/felipecotto" />
     </QuizBackground>
   );

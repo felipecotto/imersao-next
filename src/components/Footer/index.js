@@ -3,17 +3,19 @@ import styled from 'styled-components';
 
 // src/components/Footer/index.js
 const FooterWrapper = styled.footer`
-  background-color: #00000070;
   padding: 20px;
-  display: flex;
-  align-items: center;
-  border-radius: 4px; 
+  div {
+    display: flex;
+    align-items: center;
+  }
   img {
-    width: 58px;
-    margin-right: 23px;
+    display: block;
+    width: 120px;
+    height: auto;
+    margin-right: 32px;
   }
   a {
-    color: white;
+    color: #414040;
     text-decoration: none;
     transition: .3s;
     &:hover,
@@ -31,18 +33,24 @@ export default function Footer(props) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <FooterWrapper {...props}>
-      <a href="https://www.alura.com.br/" target="_blank">
-        <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
-      </a>
-      <p>
-        Orgulhosamente criado durante
-        {' '}
-        a
-        {' '}
-        <a href="https://www.alura.com.br/" target="_blank">
-          <span>Imersão React da Alura</span>
+      <div>
+        <a
+          href="https://www.alura.com.br/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="https://hipsters.jobs/files/pictures/alura-dark-300.png" alt="Logo Alura" />
         </a>
-      </p>
+        <p>
+          Orgulhosamente criado durante
+          {' '}
+          a
+          {' '}
+          <a href="https://www.alura.com.br/" target="_blank" rel="noreferrer">
+            <span>Imersão React da Alura</span>
+          </a>
+        </p>
+      </div>
     </FooterWrapper>
   );
 }

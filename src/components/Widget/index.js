@@ -10,7 +10,7 @@ const Widget = styled.div`
   background: rgba(255,255,255,0.8);
     border-radius: 8px;
     padding: 32px;
-  h1, h3 {
+  h1 {
     font-size: 48px;
     font-weight: 700;
     line-height: 1;
@@ -25,7 +25,7 @@ const Widget = styled.div`
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
-    color: ${({ theme }) => theme.colors.bg};
+    color: #3e3e3e;
   }
 `;
 
@@ -44,16 +44,25 @@ Widget.Content = styled.div`
 `;
 
 Widget.Header = styled.header`
-  display: flex;
-  justify-content: flex-start;
-  /* align-items: center; */
-  flex-direction: column;
   padding: 18px 32px;
-  /* background-color: ${({ theme }) => theme.colors.success}; */
+  text-align: right;
+
+  h3 {
+    font-size: 16px;
+    background-color: #EE4844;
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 49px;
+    color: #fff;
+  }
   
   * {
     margin: 0;
   }
+`;
+
+Widget.Title = styled.h1`
+  font-size: 48px;
 `;
 
 Widget.Topic = styled.a`
@@ -61,6 +70,9 @@ Widget.Topic = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
   background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  color: #301f52;
+  background-color: #e2aaec40;
+  box-shadow: 2px 0 8px rgb(0 0 0 / 20%);
   padding: 10px 15px;
   margin-bottom: 8px;
   cursor: pointer;

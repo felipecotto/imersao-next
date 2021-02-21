@@ -5,14 +5,14 @@
     "questions": [
       {
         "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
+        "title": "Qual significado da sigla CW?",
         "description": "Essa é pra aquecer",
-        "answer": 2,
+        "answer": 0,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Color Way",
+          "Color Widgets",
+          "Color Width",
+          "Color Winners"
         ]
       },
       {
@@ -38,7 +38,11 @@
       }
     ],
     "external": [
-      ""
+      "https://alura-quiz-basquete.vercel.app/", 
+      "https://aluraquiz-css.omariosouto.vercel.app/",
+      "https://aluraquiz-devsoutinho.omariosouto.vercel.app/",
+      "https://quiz-interstellar.dotjorge.vercel.app/",
+      "https://1sec-quiz.victoroda.vercel.app/"
     ],
     "themeDark": {
       "colors": {

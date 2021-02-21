@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizContainer from '../src/components/QuizContainer';
-import QuizLogo from '../src/components/QuizLogo';
-import Widget from '../src/components/Widget';
-import db from '../db.json';
-import Button from '../src/components/Button';
-import AlternativesForm from '../src/components/AlternativesForm';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizContainer from '../../src/components/QuizContainer';
+import QuizLogo from '../../src/components/QuizLogo';
+import Widget from '../../src/components/Widget';
+import db from '../../db.json';
+import Button from '../../src/components/Button';
+import AlternativesForm from '../../src/components/AlternativesForm';
 
 function ResultWidget({ results }) {
   return (
@@ -77,7 +77,7 @@ function QuestionWidget({
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
       </Widget.Header>
-      <img
+      {/* <img
         alt="Descrição"
         style={{
           width: '100%',
@@ -85,7 +85,7 @@ function QuestionWidget({
           objectFit: 'cover',
         }}
         src={question.image}
-      />
+      /> */}
       <Widget.Content>
         <h2>{question.title}</h2>
         <p>{question.description}</p>
@@ -183,7 +183,6 @@ export default function QuizPage() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
-        <QuizLogo />
         {screenState === screenStates.QUIZ && (
           <QuestionWidget
             question={question}

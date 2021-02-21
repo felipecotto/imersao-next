@@ -22,7 +22,7 @@ const LabelInput = styled.label`
 export default function Input({ onChange, placeholder, ...props }) {
   return (
     <div>
-      <LabelInput>Digite seu nome e comece a jogar</LabelInput>
+      <LabelInput>Digite seu nome e descubra</LabelInput>
       <InputBase
         placeholder={placeholder}
         onChange={onChange}
